@@ -1,0 +1,1 @@
+// Paragon Lite theme scripts.
