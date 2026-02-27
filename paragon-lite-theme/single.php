@@ -8,7 +8,7 @@
 get_header();
 ?>
 <div class="wrap main-layout <?php echo is_active_sidebar('sidebar-1') ? 'has-sidebar' : ''; ?>">
-    <main class="content-area">
+    <main id="primary-content" class="content-area" tabindex="-1">
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
                 <header class="entry-header">
@@ -22,6 +22,9 @@ get_header();
                         );
                         ?>
                     </div>
+                    <?php if (has_post_thumbnail()) : ?>
+                        <figure class="post-thumbnail"><?php the_post_thumbnail('large'); ?></figure>
+                    <?php endif; ?>
                 </header>
 
                 <div class="entry-content">
@@ -30,6 +33,7 @@ get_header();
                 </div>
 
                 <footer class="entry-footer">
+                    <span class="screen-reader-text"><?php esc_html_e('Categories: ', 'paragon-lite'); ?></span>
                     <?php the_category(', '); ?>
                 </footer>
             </article>

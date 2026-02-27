@@ -8,7 +8,7 @@
 get_header();
 ?>
 <div class="wrap main-layout <?php echo is_active_sidebar('sidebar-1') ? 'has-sidebar' : ''; ?>">
-    <main class="content-area">
+    <main id="primary-content" class="content-area" tabindex="-1">
         <header class="entry">
             <h1 class="entry-title">
                 <?php

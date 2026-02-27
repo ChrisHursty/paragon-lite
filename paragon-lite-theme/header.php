@@ -13,7 +13,8 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header class="site-header">
+<a class="skip-link screen-reader-text" href="#primary-content"><?php esc_html_e('Skip to content', 'paragon-lite'); ?></a>
+<header class="site-header" role="banner">
     <div class="wrap">
         <div class="site-branding">
             <?php if (has_custom_logo()) : ?>
@@ -32,7 +33,11 @@
             <?php endif; ?>
         </div>
 
-        <nav class="main-navigation" aria-label="<?php esc_attr_e('Primary Menu', 'paragon-lite'); ?>">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu-wrapper">
+            <?php esc_html_e('Menu', 'paragon-lite'); ?>
+        </button>
+
+        <nav id="primary-menu-wrapper" class="main-navigation" aria-label="<?php esc_attr_e('Primary Menu', 'paragon-lite'); ?>">
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'primary',

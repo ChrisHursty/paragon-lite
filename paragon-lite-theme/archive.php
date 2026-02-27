@@ -8,7 +8,7 @@
 get_header();
 ?>
 <div class="wrap main-layout <?php echo is_active_sidebar('sidebar-1') ? 'has-sidebar' : ''; ?>">
-    <main class="content-area">
+    <main id="primary-content" class="content-area" tabindex="-1">
         <header class="entry">
             <?php the_archive_title('<h1 class="entry-title">', '</h1>'); ?>
             <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
@@ -17,6 +17,11 @@ get_header();
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
+                    <?php if (has_post_thumbnail()) : ?>
+                        <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+                            <?php the_post_thumbnail('medium_large'); ?>
+                        </a>
+                    <?php endif; ?>
                     <?php the_title(sprintf('<h2 class="entry-title"><a href="%s">', esc_url(get_permalink())), '</a></h2>'); ?>
                     <div class="entry-content"><?php the_excerpt(); ?></div>
                 </article>

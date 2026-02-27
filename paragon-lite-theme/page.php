@@ -8,7 +8,7 @@
 get_header();
 ?>
 <div class="wrap main-layout <?php echo is_active_sidebar('sidebar-1') ? 'has-sidebar' : ''; ?>">
-    <main class="content-area">
+    <main id="primary-content" class="content-area" tabindex="-1">
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
                 <header class="entry-header">

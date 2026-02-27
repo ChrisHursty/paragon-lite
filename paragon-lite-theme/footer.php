@@ -5,15 +5,17 @@
  * @package Paragon_Lite
  */
 ?>
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
     <div class="wrap">
-        <?php
-        wp_nav_menu(array(
-            'theme_location' => 'footer',
-            'menu_id'        => 'footer-menu',
-            'fallback_cb'    => false,
-        ));
-        ?>
+        <nav aria-label="<?php esc_attr_e('Footer Menu', 'paragon-lite'); ?>">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'footer',
+                'menu_id'        => 'footer-menu',
+                'fallback_cb'    => false,
+            ));
+            ?>
+        </nav>
         <div class="site-info">
             <?php
             printf(
